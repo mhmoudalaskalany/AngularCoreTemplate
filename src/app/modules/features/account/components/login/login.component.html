@@ -1,0 +1,17 @@
+<div class="panel-lite">
+  <form (ngSubmit)="login()" #form="ngForm">
+    <div class="thumbur">
+      <div class="icon-lock"></div>
+    </div>
+    <h4>Login</h4>
+    <div class="form-group">
+      <label class="form-label">User Name</label>
+      <input type="text" class="form-control" [(ngModel)]="model.userName"  name="userName" required/>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Password</label>
+      <input class="form-control" type="password" [(ngModel)]="model.password"  name="password" required/>
+    </div>
+    <button class="btn btn-block loginBtn">Login</button>
+  </form>
+</div>

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Injector } from '@angular/core';
+import { Shell } from 'base/components/shell';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AngularGridCoreTemplate';
+  constructor(public inj: Injector) {
+    Shell.Injector = inj;
+  }
 }
