@@ -20,6 +20,7 @@ import { AppComponent } from './app.component';
 import { ConfigService } from 'core/services/config/config.service';
 import { LoginComponent } from 'features/account/components/login/login.component';
 import { UnAuthorizedComponent } from 'features/account/components/403/un-authorized/un-authorized.component';
+import { SharedModule } from 'shared/shared.module';
 
 /* a head of compile functions */
 const initializerConfigFn = (appConfig: ConfigService) => {
@@ -41,6 +42,7 @@ const initializerConfigFn = (appConfig: ConfigService) => {
     FormsModule,
     ReactiveFormsModule,
     CoreModule,
+    SharedModule,
     ToastrModule.forRoot(),
     AppRoutingModule
   ],

@@ -6,7 +6,7 @@ import { LoaderService } from 'shared/loader/loader.service';
 @Component({
   selector: 'app-loading-spinner',
   templateUrl: './loading-spinner.component.html',
-  styleUrls: ['./loading-spinner.component.scss']
+  styleUrls: []
 })
 export class LoadingSpinnerComponent implements OnInit {
 
