@@ -3,11 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
+
 /* third parties module imports */
 import { ToastrModule } from 'ngx-toastr';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 /* custom modules imports */
 import { CoreModule } from 'core/core.module';
@@ -28,6 +33,12 @@ const initializerConfigFn = (appConfig: ConfigService) => {
     return appConfig.loadAppConfig();
   };
 };
+
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
+}
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,10 +55,19 @@ const initializerConfigFn = (appConfig: ConfigService) => {
     CoreModule,
     SharedModule,
     ToastrModule.forRoot(),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (HttpLoaderFactory),
+        deps: [HttpClient]
+      },
+      isolate: false
+    }),
     AppRoutingModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS,
+    {
+      provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
     },
@@ -57,6 +77,7 @@ const initializerConfigFn = (appConfig: ConfigService) => {
       multi: true,
       deps: [ConfigService],
     },
+
   ],
   bootstrap: [AppComponent]
 })
