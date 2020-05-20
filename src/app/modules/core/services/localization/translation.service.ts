@@ -21,7 +21,7 @@ export class TranslationService {
     this.translate.addLangs(['en', 'fr', 'ar']);
     this.translate.setDefaultLang('en');
     const browserLang = this.translate.getBrowserLang();
-    this.translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
+    this.translate.use(browserLang.match(/en|fr|ar/) ? browserLang : 'en');
   }
 
   useLanguage(lang: string): void {
