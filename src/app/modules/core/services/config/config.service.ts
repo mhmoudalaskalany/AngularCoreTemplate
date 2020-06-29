@@ -14,7 +14,7 @@ export class ConfigService {
   }
 
   loadAppConfig() {
-    console.log('environment' , environment.state);
+    console.log('environment', environment.state);
     return this.http
       .get('/assets/config/' + this.configFile)
       .toPromise()
@@ -33,5 +33,8 @@ export class ConfigService {
 
   getServerUrl(): string {
     return this.appConfig.HOST_API;
+  }
+  getAppUrl(key): any {
+    return this.appConfig[key];
   }
 }

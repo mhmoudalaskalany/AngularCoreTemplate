@@ -5,13 +5,13 @@ import { SortEvent } from 'primeng/api/sortevent';
 import { ColumnsInterface } from './models/columns.interface';
 import { URL } from './models/url';
 import { take } from 'rxjs/operators';
-import { AlertService } from 'core/services/alert/alert.service';
 import { ConfigService } from 'core/services/config/config.service';
 import { ActionsInterface } from './models/actions.interface';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { DeleteModalComponent } from './components/delete-modal.component';
 import { Router } from '@angular/router';
 import { TableOptions } from './models/tableOptions';
+import { AlertService } from 'core/services/alert/alert.service';
 
 @Component({
   selector: 'app-data-table',

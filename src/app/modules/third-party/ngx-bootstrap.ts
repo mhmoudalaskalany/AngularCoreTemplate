@@ -1,4 +1,7 @@
 import { CollapseModule } from 'ngx-bootstrap/collapse';
-
-export const NgxBootstrapModules = [CollapseModule.forRoot()];
+import { ModalModule } from 'ngx-bootstrap/modal';
+export const NgxBootstrapModules = [
+  CollapseModule.forRoot(),
+  ModalModule.forRoot()
+];
 

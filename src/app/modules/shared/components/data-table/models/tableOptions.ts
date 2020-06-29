@@ -7,5 +7,4 @@ export class TableOptions {
   inputUrl?: URL = {};
   inputPermissions?: string[] = [];
   inputName?: string;
-  nonSuperAdminRoleId ?= 0;
 }
