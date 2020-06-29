@@ -1,61 +1,53 @@
-<div>
-  <table mat-table [dataSource]="localList" matSort class="mat-elevation-z8">
-    <ng-container [matColumnDef]="localList" *ngFor="let localList of columns">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{columnHeader[localList]}} </th>
-      <td mat-cell *matCellDef="let element"> {{element[localList] }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="view" *ngIf="containView">
-      <th mat-header-cell *matHeaderCellDef>عرض</th>
-      <td mat-cell *matCellDef="let element">
-        <button class="btn btn-lg" (click)="openDialog(element)">
-          <i class="fa fa-file"></i>
-        </button>
-      </td>
-    </ng-container>
-
-    <ng-container matColumnDef="edit" *ngIf="containEdit">
-      <th mat-header-cell *matHeaderCellDef>تعديل</th>
-      <td mat-cell *matCellDef="let element">
-        <a [routerLink]="[currentRoute+element.id]" class="
-        btn">
-          <i class="fa fa-edit"></i>
-        </a>
-      </td>
-    </ng-container>
-
-
-    <ng-container matColumnDef="print" *ngIf="caontainPrint">
-      <th mat-header-cell *matHeaderCellDef>طباعة</th>
-      <td mat-cell *matCellDef="let element">
-        <button class="btn btn-lg" (click)="print(element.id)">
-          <i class="fa fa-print"></i>
-        </button>
-      </td>
-    </ng-container>
-
-    <ng-container matColumnDef="delete" *ngIf="containDelete">
-      <th mat-header-cell *matHeaderCellDef>حذف</th>
-      <td mat-cell *matCellDef="let element">
-        <button class="btn btn-lg" (click)="delete(element.id)">
-          <i class="fa fa-trash"></i>
-        </button>
-      </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let element,let row; columns: displayedColumns;"></tr>
-  </table>
-  <mat-paginator class="mt-2" [length]="listCount" [pageSizeOptions]="[5,10,15]" [pageSize]="5" showFirstLastButtons>
-  </mat-paginator>
-</div>
-
-<div>
-  <ng-template #noData>
-    <div rtl>
-      <h1 *ngIf="localList.length==0">
-        لا يوجد نتائج
-      </h1>
-    </div>
+<p-table #table [columns]="cols" [value]="data" [paginator]="true" [rows]="8" [customSort]="true" autoLayout="true"
+  (sortFunction)="customSort($event)">
+  <ng-template pTemplate="header" let-columns>
+    <!-- Table Headers-->
+    <tr>
+      <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+        {{ 'Data.' +col.header | translate }}
+        <p-sortIcon [field]="col.field"></p-sortIcon>
+      </th>
+      <!-- Show Action In Header Row-->
+      <th
+        *ngIf="actions && (permissions.indexOf('Permission.'+ componentName+ '.Edit') > -1 || permissions.indexOf('Permission.'+ componentName+ '.Delete') > -1)"
+        style="width: 10em;">
+        {{ 'Data.Actions' | translate}}</th>
+    </tr>
+    <!-- Filter Controls-->
+    <tr>
+      <th *ngFor="let col of columns" [ngSwitch]="col.filterMode">
+        <input *ngSwitchCase="'text'" pInputText type="text" (input)="filter($event.target.value, col.field)">
+      </th>
+      <!-- Show Action In Filter Controls Row-->
+      <th
+        *ngIf="actions && (permissions.indexOf('Permission.'+ componentName+ '.Edit') > -1 || permissions.indexOf('Permission.'+ componentName+ '.Delete') > -1)">
+      </th>
+    </tr>
   </ng-template>
-</div>
+
+  <ng-template pTemplate="body" let-row let-columns="columns">
+    <!-- Table Rows-->
+    <tr>
+      <!-- Display Data-->
+      <td *ngFor="let col of columns">
+        {{ row[col.field] }}
+      </td>
+      <!-- Display Actions-->
+      <td
+        *ngIf="actions && (permissions.indexOf('Permission.'+ componentName+ '.Edit') > -1 || permissions.indexOf('Permission.'+ componentName+ '.Delete') > -1)"
+        class="actions">
+        <span *ngFor="let action of actions">
+          <span *ngIf="action.isEdit && permissions.indexOf('Permission.'+ componentName+ '.Edit') > -1">
+            <a [routerLink]="currentRoute + row.id">
+              <i class="{{ action.icon }} icon"></i>
+            </a>
+          </span>
+          <span *ngIf="action.isDelete && permissions.indexOf('Permission.'+ componentName+ '.Delete') > -1">
+            <i class="{{ action.icon }} icon" (click)="openDeleteModal(row.id)"></i>
+          </span>
+        </span>
+      </td>
+    </tr>
+  </ng-template>
+
+</p-table>

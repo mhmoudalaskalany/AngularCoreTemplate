@@ -1,1 +1,22 @@
+/* action icon style */
 
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconPadding {
+    padding: 5px;
+}
+
+.icon {
+    font-size: 25px;
+    margin: 5px;
+    transition: all .3s ease-in-out;
+}
+
+.icon:hover {
+    color: #3f51b5;
+    cursor: pointer;
+}
