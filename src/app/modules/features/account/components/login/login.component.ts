@@ -23,22 +23,19 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    // this.loginService.login(this.loginModel).subscribe(data => {
-    //   console.log(data);
-    // });
-    this.route.navigate(['/main/home']);
-    // this.loginService.login(this.loginModel).subscribe((data: any) => {
-    //   if (data.status === 200) {
-    //     this.storageService.setItem('token', data.data.token);
-    //     this.storageService.setItem('userData', JSON.stringify(data.data));
-    //     this.route.navigate(['/main']);
-    //   }
-    //   else {
-    //     this.alert.showError('User or Password is Incorrect');
-    //   }
-    // }, error => {
-    //   this.alert.showError('Error Login');
-    // });
+
+    this.loginService.login(this.model).subscribe((data: any) => {
+      if (data.status === 200) {
+        this.storageService.setItem('token', data.data.token);
+        this.storageService.setItem('userData', JSON.stringify(data.data));
+        this.route.navigate(['/main']);
+      }
+      else {
+        this.alert.showError('User or Password is Incorrect');
+      }
+    }, error => {
+      this.alert.showError('Error Login');
+    });
 
   }
 

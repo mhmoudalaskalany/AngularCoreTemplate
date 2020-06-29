@@ -1,23 +1,49 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { StorageService } from '../storage/storage.service';
+import { AuthService } from '../auth/auth.service';
+import { RouteData } from './models';
+import { SessionManager } from './session-manager';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor(private storageService: StorageService, private router: Router) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
+  // canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+  //   if (this.authService.isAuthenticated()) { return true; }
+  //   this.router.navigate(['/login'], { queryParams: { redirect: state.url }, replaceUrl: true });
+  //   return false;
+  // }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-
-    const token = this.storageService.getToken();
-    if (token == null || token === '') {
-      this.router.navigate(['/403']);
-
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> {
+    /* get current session manager */
+    const manager: SessionManager = SessionManager.Current();
+    /* if user is not logged in return false and redirect to login */
+    if (manager.GetToken() == null) {
+      this.router.navigate(['/login'], { queryParams: { redirect: state.url }, replaceUrl: true });
+      return false;
+    }
+    /* if there is no data in route allow the user */
+    if (route.data === undefined) {
+      return true;
+    }
+    /* get route data */
+    const data: RouteData = Object.assign(new RouteData(), route.data);
+    /* if it allow anonymous allow the user */
+    if (data.IsAnonymous) {
+      return true;
+    }
+    /* check if user ia authorized */
+    const result = manager.IsAuthorized(data);
+    if (result) {
+      return true;
+    } else {
+      this.router.navigate(['main/403']);
+      return false;
     }
 
-    return true;
   }
 }

@@ -23,9 +23,9 @@ import { TokenInterceptor } from 'core/services/interceptors/token.interceptor';
 /* custom components imports */
 import { AppComponent } from './app.component';
 import { ConfigService } from 'core/services/config/config.service';
+import { SharedModule } from 'shared/shared.module';
 import { LoginComponent } from 'features/account/components/login/login.component';
 import { UnAuthorizedComponent } from 'features/account/components/403/un-authorized/un-authorized.component';
-import { SharedModule } from 'shared/shared.module';
 
 /* a head of compile functions */
 const initializerConfigFn = (appConfig: ConfigService) => {

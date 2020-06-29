@@ -9,7 +9,7 @@
       </th>
       <!-- Show Action In Header Row-->
       <th
-        *ngIf="actions && (permissions.indexOf('Permission.'+ componentName+ '.Edit') > -1 || permissions.indexOf('Permission.'+ componentName+ '.Delete') > -1)"
+        *ngIf="actions"
         style="width: 10em;">
         {{ 'Data.Actions' | translate}}</th>
     </tr>
@@ -20,7 +20,7 @@
       </th>
       <!-- Show Action In Filter Controls Row-->
       <th
-        *ngIf="actions && (permissions.indexOf('Permission.'+ componentName+ '.Edit') > -1 || permissions.indexOf('Permission.'+ componentName+ '.Delete') > -1)">
+        *ngIf="actions">
       </th>
     </tr>
   </ng-template>
@@ -34,15 +34,15 @@
       </td>
       <!-- Display Actions-->
       <td
-        *ngIf="actions && (permissions.indexOf('Permission.'+ componentName+ '.Edit') > -1 || permissions.indexOf('Permission.'+ componentName+ '.Delete') > -1)"
+        *ngIf="actions"
         class="actions">
         <span *ngFor="let action of actions">
-          <span *ngIf="action.isEdit && permissions.indexOf('Permission.'+ componentName+ '.Edit') > -1">
+          <span *ngIf="action.isEdit">
             <a [routerLink]="currentRoute + row.id">
               <i class="{{ action.icon }} icon"></i>
             </a>
           </span>
-          <span *ngIf="action.isDelete && permissions.indexOf('Permission.'+ componentName+ '.Delete') > -1">
+          <span *ngIf="action.isDelete">
             <i class="{{ action.icon }} icon" (click)="openDeleteModal(row.id)"></i>
           </span>
         </span>

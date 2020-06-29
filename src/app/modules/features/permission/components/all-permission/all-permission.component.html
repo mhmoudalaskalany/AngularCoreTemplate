@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-12 align-items-stretch">
+    <div class="card border-0 rounded-0 h-100">
+      <div class="card-title mb-1 p-3">
+        <div class="table-header d-flex justify-content-between">
+          <div class="table-title">
+            <h5>{{ 'Data.Permissions' |translate }}</h5>
+          </div>
+          <div class="table-add-btn">
+            <button class="btn btn-lightning rounded-0 mb-2 add" routerLink="/main/permission/add"
+              *ngIf="permissions.indexOf('Permission.Permissions.Add') > -1">
+              Add
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="card-body">
+        <app-data-table [tableOptions]="tableOptions">
+
+        </app-data-table>
+      </div>
+    </div>
+  </div>
+</div>

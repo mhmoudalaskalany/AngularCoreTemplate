@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, InjectionToken } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpServiceBaseService } from 'base/services/http-service-base.service';
 import { Observable } from 'rxjs';
 import { ConfigService } from '../config/config.service';
+import { Shell } from 'base/components/shell';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,7 +16,7 @@ export abstract class HttpService extends HttpServiceBaseService {
 
   public serverUrl = this.configService.getServerUrl();
 
-  constructor(public http: HttpClient , private configService: ConfigService) {
+  constructor(public http: HttpClient, private configService: ConfigService) {
     super();
   }
   /**
@@ -35,8 +36,6 @@ export abstract class HttpService extends HttpServiceBaseService {
    * @return {Observable} Observable of response, comes from the end point
    */
   postReq(url: string, data: any) {
-    console.log('at post request');
-    console.log(data);
     return this.http.post(this.serverUrl + this.baseUrl + url, data);
   }
 

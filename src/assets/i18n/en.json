@@ -1,3 +1,52 @@
 {
-  "TITLE": "Angular 9 Title"
+  "TITLE": "Angular 9 Title",
+  "HOME": {
+    "PAGES": {
+      "USERS": "Users",
+      "USERROLES": "User Roles",
+      "APPS": "Applications",
+      "ROLES": "Roles",
+      "PERMISSIONS": "Permissions",
+      "PAGES": "Pages",
+      "USERAPPS":"Application Users"
+    }
+  },
+  "Data": {
+    "PageName": "Page Name",
+    "Pages": "Pages",
+    "Page":"Page",
+    "Roles":"Roles",
+    "Add": "Add",
+    "Edit": "Edit",
+    "Delete": "Delete",
+    "View": "View",
+    "EnglishName":"English Name",
+    "ArabicName":"Arabic name",
+    "Role":"Role",
+    "Submit":"Submit",
+    "Cancel":"Cancel",
+    "Save":"Save",
+    "SelectApp":"Select App",
+    "Actions":"Actions",
+    "All":"All",
+    "URL":"URL",
+    "Apps":"Applications",
+    "Application":"Application",
+    "Permissions":"Permissions",
+    "Permission":"Permission",
+    "UserRoles":"User Roles",
+    "Users":"Users",
+    "User":"User",
+    "UserApps":"Application Users",
+    "Email":"Email",
+    "Username":"Username",
+    "Logout":"Logout",
+    "AppArabicName":"App Arabic Name",
+    "AppEnglishName":"App English Name",
+    "AddUserRoles":"Add User Roles",
+    "ManageUserRoles":"Manager User Roles",
+    "Back":"Back",
+    "EditApplicationUsers":"Edit Application Users"
+  },
+  "All":"All"
 }

@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from 'features/dashboard/services/dashboard.service';
+import { TranslationService } from 'core/services/localization/translation.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,10 @@ import { DashboardService } from 'features/dashboard/services/dashboard.service'
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private dashboardService: DashboardService) { }
+  constructor(
+    private dashboardService: DashboardService,
+    private translateService: TranslationService
+  ) { }
   isCollapsed = true;
   ngOnInit() {
   }
@@ -19,6 +23,10 @@ export class NavbarComponent implements OnInit {
   }
   toggleSidebar() {
     this.dashboardService.toggleSidebar();
+  }
+  setLanguage(lang: string): void {
+    this.translateService.setLanguage(lang);
+    console.log('language', this.translateService.lang);
   }
 
 }

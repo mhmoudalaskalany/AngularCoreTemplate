@@ -1,4 +1,4 @@
-import { Injectable, PLATFORM_ID, Optional } from '@angular/core';
+import { Injectable, PLATFORM_ID, Optional, RendererFactory2, Renderer2 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 
@@ -13,7 +13,9 @@ import { TranslateService } from '@ngx-translate/core';
 export class TranslationService {
   langs = ['en', 'fr', 'ar'];
   lang;
-  constructor(public translate: TranslateService) {
+  private renderer: Renderer2;
+  constructor(public translate: TranslateService , private rendererFactory: RendererFactory2) {
+    this.renderer = rendererFactory.createRenderer(null, null);
     this.lang = localStorage.getItem('language') != null ? localStorage.getItem('language') : 'en';
   }
 
@@ -34,6 +36,11 @@ export class TranslationService {
   }
 
   setLanguage(lang: string) {
+    if (lang === 'ar') {
+      this.renderer.addClass(document.body, 'rtl');
+    } else {
+      this.renderer.removeClass(document.body, 'rtl');
+    }
     this.translate.use(lang);
   }
 }

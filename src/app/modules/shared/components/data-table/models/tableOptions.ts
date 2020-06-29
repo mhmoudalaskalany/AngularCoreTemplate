@@ -5,6 +5,5 @@ export class TableOptions {
   inputCols?: ColumnsInterface[] = [];
   inputActions?: ActionsInterface[] = [];
   inputUrl?: URL = {};
-  inputPermissions?: string[] = [];
   inputName?: string;
 }

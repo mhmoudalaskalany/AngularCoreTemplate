@@ -8,7 +8,7 @@ import { LoginModel } from '../models/loginModel';
 export class LoginService extends HttpService {
 
   protected get baseUrl(): string {
-    return 'I/Accounts/';
+    return 'Accounts/';
   }
   login(loginModel: LoginModel) {
     return this.postReq('Login', loginModel);

@@ -5,7 +5,7 @@ import { of } from 'rxjs';
   providedIn: 'root'
 })
 export class StorageService {
-  constructor() {}
+  constructor() { }
 
   setItem(key: string, value: string) {
     return of(localStorage.setItem(key, value));
@@ -22,8 +22,14 @@ export class StorageService {
   getToken() {
     return localStorage.getItem('token');
   }
+  getTokenFromSessionStorage() {
+    return sessionStorage.getItem('token');
+  }
 
   clearStorage() {
     return of(localStorage.clear());
+  }
+  clearSessionStorage() {
+    return of(sessionStorage.clear());
   }
 }

@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-12 mb-4 align-items-stretch">
+    <div class="card border-0 rounded-0 h-100">
+      <div class="card-title mb-1 p-3 d-flex justify-content-between">
+        <div>
+          <h5 *ngIf="isNew">{{ 'Data.Add'  | translate}} {{ 'Data.Permission' | translate }}</h5>
+          <h5 *ngIf="!isNew">{{ 'Data.Edit'  | translate}} {{ 'Data.Permission' | translate }}</h5>
+        </div>
+        <div>
+          <button type="button" role="button" class="btn btn-outline-lightning rounded-0 mb-2"
+            (click)="Redirect()">{{ 'Data.Back' |translate }}</button>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <form name="form" (ngSubmit)="f.form.valid && Submit()" #f="ngForm" novalidate>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="nameEn">English Name</label>
+                <input type="text" class="form-control rounded-0" id="nameEn" name="nameEn" [(ngModel)]="model.nameEn">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="nameAr">Arabic name</label>
+                <input type="text" class="form-control rounded-0" id="nameAr" name="nameAr" [(ngModel)]="model.nameAr">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group" *ngIf="isNew">
+                <label for="code">Code</label>
+                <input type="text" class="form-control rounded-0" id="code" name="code" [(ngModel)]="model.code">
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-lightning rounded-0 mb-2 mr-2" [disabled]="!f.form.valid">{{ 'Data.Save' | translate }}</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

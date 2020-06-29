@@ -1,64 +1,141 @@
 <aside class="sidebar shadow-sm">
 
-  <div class="sidebar-profile d-flex flex-column justify-content-center pt-5 pb-3">
-    <div class="picture-wrapper mb-4">
-      <div class="user-picture m-auto">
-        <img src="./assets/img/user.jpg" class="img-fluid" alt="">
-      </div>
+    <div class="sidebar-profile d-flex flex-column justify-content-center pt-5 pb-3">
+        <div class="picture-wrapper mb-4">
+            <div class="user-picture m-auto">
+                <img src="./assets/img/user.jpg" class="img-fluid" alt="">
+            </div>
+        </div>
+        <div class="profile-details text-center pb-4">
+            <p class="mb-0 text-uppercase name">Mahmoud Alaskalany</p>
+            <small class="text-uppercase role">Administrator</small>
+        </div>
     </div>
-    <div class="profile-details text-center pb-4">
-      <p class="mb-0 text-uppercase name">Mahmoud Ragab</p>
-      <small class="text-uppercase role">Administrator</small>
+    <div class="sidebar-search pt-1 pb-1 pl-3 pr-3">
+        <input type="search" class="form-control rounded-pill" name="search" placeholder="Search ...">
     </div>
-  </div>
-  <div class="sidebar-search pt-1 pb-1 pl-3 pr-3">
-    <input type="search" class="form-control rounded-pill" name="search" placeholder="Search ...">
-  </div>
-  <nav class="sidebar-menu pt-3 pb-3">
-    <div class="menu-header mt-3 mb-2">
-      Components
-    </div>
-    <ul class="menu-items">
-      <li >
-        <a href="#" routerLink="/dashboard" routerLinkActive="active">
-          <i class="fa fa-tv"></i>
-          <span>Dashboard</span>
-          <span class="badge badge-warning rounded-0 text-dark p-1">NEW</span>
-        </a>
-      </li>
-      <li>
-        <a href="#" routerLink="/forms" routerLinkActive="active">
-          <i class="fas fa-gem"></i>
-          <span>Forms</span>
-        </a>
-      </li>
-      <li>
-        <a href="#" routerLink="/tables" routerLinkActive="active">
-          <i class="fa fa-table"></i>
-          <span>Tables</span>
-        </a>
-      </li>
-      <li>
-        <a href="#" routerLink="/typography" routerLinkActive="active">
-          <i class="fa fa-align-center"></i>
-          <span>Typography</span>
-        </a>
-      </li>
-      <li>
-        <a href="#" routerLink="/maps" routerLinkActive="active">
-          <i class="fa fa-globe"></i>
-          <span>Maps</span>
-        </a>
-      </li>
-      <li>
-        <a href="#" routerLink="/notifications" routerLinkActive="active">
-          <i class="fas fa-bell"></i>
-          <span>Notifications</span>
-        </a>
-      </li>
-    </ul>
-    <div class="view-source mb-3">
-      <button  target="_blank" class="btn btn-block btn-lightning rounded-0">Logout</button>
-    </div>
-  </nav>
+    <nav class="sidebar-menu pt-3 pb-3">
+        <!-- <div class="menu-header mt-3 mb-2">
+            Components
+        </div> -->
+        <ul class="menu-items">
+          <li >
+            <a href="#" routerLink="/main/permission/all" routerLinkActive="active">
+              <i class="fas fa-check-square"></i>
+              <span>{{ 'HOME.PAGES.PERMISSIONS'  | translate}}</span>
+            </a>
+          </li>
+
+
+            <!-- Users -->
+
+            <!-- <li>
+                <a href="#userSubmenu" routerLinkActive="active" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fa fa-user"></i>
+                    <span>Users</span>
+                </a>
+                <ul class="collapse menu-items" id="userSubmenu">
+                    <li class="sub-menu-item">
+                        <a routerLink="/main/user/all" routerLinkActive="active">
+                            <i class="fa fa-user"></i>
+                            <span>All Users</span>
+                        </a>
+                    </li>
+                </ul>
+            </li> -->
+
+            <!-- User Apps -->
+
+            <!-- <li>
+                <a href="#userAppSubmenu" routerLinkActive="active" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fa fa-user"></i>
+                    <span>User Applications</span>
+                </a>
+                <ul class="collapse menu-items" id="userAppSubmenu">
+                    <li class="sub-menu-item">
+                        <a routerLink="/main/user-app/all" routerLinkActive="active">
+                            <i class="fas fa-tablet"></i>
+                            <span>All Applications</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu-item">
+                        <a routerLink="/main/user-app/add" routerLinkActive="active">
+                            <i class="fa fa-cog"></i>
+                            <span>Manage Applications</span>
+                        </a>
+                    </li>
+                </ul>
+            </li> -->
+
+            <!-- Apps -->
+
+            <!-- <li>
+                <a href="#appSubmenu" routerLinkActive="active" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-mobile"></i>
+                    <span>Applications</span>
+                </a>
+                <ul class="collapse menu-items" id="appSubmenu">
+                    <li class="sub-menu-item">
+                        <a routerLink="/main/app/all" routerLinkActive="active">
+                            <i class="fa fa-user"></i>
+                            <span>All Apps</span>
+                        </a>
+                    </li>
+                </ul>
+            </li> -->
+
+            <!-- Roles -->
+
+            <!-- <li>
+                <a href="#roleSubmenu" routerLinkActive="active" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-lock"></i>
+                    <span>Roles</span>
+                </a>
+                <ul class="collapse menu-items" id="roleSubmenu">
+                    <li class="sub-menu-item">
+                        <a routerLink="/main/role/all" routerLinkActive="active">
+                            <i class="fas fa-lock"></i>
+                            <span>All Roles</span>
+                        </a>
+                    </li>
+                </ul>
+            </li> -->
+
+            <!-- Permissions -->
+            <!-- <li>
+                <a href="#permissionSubmenu" routerLinkActive="active" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-check-square"></i>
+                    <span>Permissions</span>
+                </a>
+                <ul class="collapse menu-items" id="permissionSubmenu">
+                    <li class="sub-menu-item">
+                        <a routerLink="/main/permission/all" routerLinkActive="active">
+                            <i class="fas fa-clipboard-check"></i>
+                            <span>All Permissions</span>
+                        </a>
+                    </li>
+                </ul>
+            </li> -->
+
+            <!-- Pages -->
+            <!-- <li>
+              <a href="#pageSubmenu" routerLinkActive="active" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                  <i class="fas fa-file"></i>
+                  <span>Pages</span>
+              </a>
+              <ul class="collapse menu-items" id="pageSubmenu">
+                  <li class="sub-menu-item">
+                      <a routerLink="/main/page/all" routerLinkActive="active">
+                          <i class="fas fa-sticky-note"></i>
+                          <span>All Pages</span>
+                      </a>
+                  </li>
+              </ul>
+          </li> -->
+
+        </ul>
+        <div class="view-source mb-3">
+            <button (click)="logout()" class="btn btn-block btn-lightning rounded-0">{{ 'Data.Logout' | translate}}</button>
+        </div>
+    </nav>
 </aside>

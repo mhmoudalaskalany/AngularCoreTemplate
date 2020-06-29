@@ -7,8 +7,11 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { ThirdPartyModule } from 'third-party/third-party.module';
 import { HttpClient } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DataTableComponent } from './components/data-table/data-table.component';
 import { NgxBootstrapModules } from 'third-party/ngx-bootstrap';
 import { PrimeNgModules } from 'third-party/primeng';
+import { RouterModule } from '@angular/router';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
@@ -17,10 +20,12 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 
 
 @NgModule({
-  declarations: [LoadingSpinnerComponent],
+  declarations: [LoadingSpinnerComponent, DataTableComponent],
   imports: [
     CommonModule,
-    NgxBootstrapModules,
+    FormsModule,
+    RouterModule,
+    ReactiveFormsModule,
     PrimeNgModules,
     ThirdPartyModule,
     TranslateModule.forChild({
@@ -31,6 +36,13 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
       }
     }),
   ],
-  exports: [LoadingSpinnerComponent, NgxBootstrapModules , PrimeNgModules, TranslateModule]
+  exports: [
+    LoadingSpinnerComponent,
+    DataTableComponent,
+    ThirdPartyModule,
+    PrimeNgModules,
+    TranslateModule,
+    FormsModule,
+    ReactiveFormsModule]
 })
 export class SharedModule { }

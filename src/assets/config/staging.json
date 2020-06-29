@@ -1,3 +1,16 @@
 {
-  "HOST_API": ""
+  "HOST_API": "https://localhost:5002/api/",
+  "ID4": "https://localhost:5001",
+  "API": {
+      "GET-PERMISSION": "https://localhost:5002/api/Permissions/GetPaged",
+      "DELETE-PERMISSION": "https://localhost:5002/api/Permissions/Delete",
+      "GET-USER": "https://localhost:5002/api/Users/GetPaged",
+      "DELETE-USER": "https://localhost:5002/api/Users/Delete",
+      "GET-PAGE": "https://localhost:5002/api/Pages/GetPaged",
+      "DELETE-PAGE": "https://localhost:5002/api/Pages/Delete",
+      "GET-ROLE": "https://localhost:5002/api/Roles/GetPaged",
+      "DELETE-ROLE": "https://localhost:5002/api/Roles/Delete",
+      "GET-APP": "https://localhost:5002/api/Apps/GetPaged",
+      "DELETE-APP": "https://localhost:5002/api/Apps/Delete"
+  }
 }

@@ -3,7 +3,7 @@ html {
     background: #075653;
     font-family: 'Roboto', sans-serif;
   }
-  
+
   .thumbur {
     width: 150px;
     height: 150px;
@@ -31,7 +31,7 @@ html {
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
   }
-  
+
   .icon-lock {
     position: relative;
     width: 80px;
@@ -69,7 +69,7 @@ html {
     transform: translateX(-50%);
     border-radius: 100%;
   }
-  
+
   .panel-lite {
     margin: 20px auto;
     max-width: 360px;
@@ -93,7 +93,7 @@ html {
     color: #075653;
     font-size: 14px;
   }
-  
+
   .form-group {
     position: relative;
     font-size: 15px;
@@ -131,7 +131,7 @@ html {
     -webkit-transform: translateY(-15px);
     transform: translateY(-15px);
   }
-  
+
   .floating-btn {
     background: #075653;
     width: 60px;
@@ -159,7 +159,7 @@ html {
   .floating-btn:focus, .floating-btn:active {
     outline: none;
   }
-  
+
   .icon-arrow {
     position: relative;
     width: 13px;
@@ -197,4 +197,3 @@ html {
   cursor: pointer;
   background: #F57C00;
 }
-  

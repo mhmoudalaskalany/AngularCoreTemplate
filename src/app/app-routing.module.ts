@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './modules/features/account/components/login/login.component';
-import { UnAuthorizedComponent } from 'features/account/components/403/un-authorized/un-authorized.component';
+import { AuthGuard } from 'core/services/guards/authguard.guard';
+import { LoginComponent } from 'features/account/components/login/login.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'main',
     pathMatch: 'full'
   },
   {
@@ -15,12 +15,10 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: '403',
-    component: UnAuthorizedComponent
-  },
-  {
     path: 'main',
-    loadChildren: () => import('./modules/features/dashboard/dashboard.module').then(m => m.DashboardModule)
+    loadChildren: () => import('./modules/features/dashboard/dashboard.module').then(m => m.DashboardModule),
+    // canActivate: [AuthGuard],
+    // data: { permission: 'allowAll' }
   }
 ];
 
