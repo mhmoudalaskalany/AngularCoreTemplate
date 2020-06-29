@@ -11,12 +11,10 @@ import { RoleData } from 'core/services/guards/models';
 export abstract class BaseEditComponent implements OnInit {
 
   constructor(protected route: ActivatedRoute) {
-    this.getRole();
    }
   model: any = {};
   isNew = true;
   id: string;
-  role: RoleData = {};
   manager: SessionManager = SessionManager.Current();
   abstract get Service(): HttpService;
   get Alert(): AlertService { return Shell.Injector.get(AlertService); }
@@ -86,8 +84,6 @@ export abstract class BaseEditComponent implements OnInit {
     this.getRouteParams();
   }
 
-  getRole(): void {
-    this.role  = this.manager.GetRole();
-  }
+
 
 }
