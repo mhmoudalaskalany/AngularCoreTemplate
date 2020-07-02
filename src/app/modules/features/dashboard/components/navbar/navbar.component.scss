@@ -1,4 +1,13 @@
 .dropdown-menu {
   right: 0 !important;
   left: unset;
+
+  &.rtl {
+    left: 0;
+    right: unset !important;
+  }
+}
+
+.icons-wrapper {
+  width: 150px;
 }

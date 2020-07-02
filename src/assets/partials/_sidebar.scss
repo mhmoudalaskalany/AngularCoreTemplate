@@ -93,7 +93,7 @@
 
               span {
                 color: inherit;
-                margin-left: 1rem;
+                margin: 0 1rem;
               }
             }
           }
@@ -107,6 +107,20 @@
         position: static;
         height: 100%;
       }
+    }
+  }
+  
+  &.rtl {
+    &.toggeled-sidebar {
+      .sidebar {
+        left: unset !important;
+        right: $sidebar-width;
+      }
+    }
+
+    .sidebar {
+      left: unset !important;
+      right: -$sidebar-width;
     }
   }
 
