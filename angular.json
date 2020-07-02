@@ -3,7 +3,7 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "AngularGridCoreTemplate": {
+        "AngularCoreTemplate": {
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:component": {
@@ -17,7 +17,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/AngularGridCoreTemplate",
+                        "outputPath": "dist/AngularCoreTemplate",
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
@@ -79,19 +79,19 @@
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
-                        "browserTarget": "AngularGridCoreTemplate:build",
+                        "browserTarget": "AngularCoreTemplate:build",
                         "port": 4200
                     },
                     "configurations": {
                         "production": {
-                            "browserTarget": "AngularGridCoreTemplate:build:production"
+                            "browserTarget": "AngularCoreTemplate:build:production"
                         }
                     }
                 },
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "AngularGridCoreTemplate:build"
+                        "browserTarget": "AngularCoreTemplate:build"
                     }
                 },
                 "test": {
@@ -121,16 +121,16 @@
                     "builder": "@angular-devkit/build-angular:protractor",
                     "options": {
                         "protractorConfig": "e2e/protractor.conf.js",
-                        "devServerTarget": "AngularGridCoreTemplate:serve"
+                        "devServerTarget": "AngularCoreTemplate:serve"
                     },
                     "configurations": {
                         "production": {
-                            "devServerTarget": "AngularGridCoreTemplate:serve:production"
+                            "devServerTarget": "AngularCoreTemplate:serve:production"
                         }
                     }
                 }
             }
         }
     },
-    "defaultProject": "AngularGridCoreTemplate"
+    "defaultProject": "AngularCoreTemplate"
 }
