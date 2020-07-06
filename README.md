@@ -1,7 +1,7 @@
 
 # AngularCoreTemplate v10
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.1.
 # Installation
 clone the repository and `run npm` install
 ## Development server
