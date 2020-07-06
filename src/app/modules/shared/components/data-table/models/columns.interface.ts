@@ -4,6 +4,7 @@ export interface ColumnsInterface {
   placeholder?: string;
   sort?: boolean;
   sortName?: string;
+  sortCol?: string;
   filterMode?: string;
 
 }

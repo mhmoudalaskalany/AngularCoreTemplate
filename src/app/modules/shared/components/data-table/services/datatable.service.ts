@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { LoadOptions } from '../models/LoadOpts';
 
 @Injectable({
@@ -14,6 +14,7 @@ export class DataTableService {
     orderByValue: [{ colId: 'id', sort: 'asc' }],
     filter: {}
   };
+  public searchNew$: BehaviorSubject<{}> = new BehaviorSubject({});
   constructor(private http: HttpClient) { }
 
   loadData(url?: string): Observable<any> {
