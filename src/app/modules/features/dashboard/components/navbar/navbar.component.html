@@ -6,7 +6,7 @@
       <img src="./assets/img/logo.png" alt="lightning logo" width="35px">
       <span class="mx-2">User Management</span>
     </a>
-    
+
     <!-- Mobile -->
 
     <div class=" d-flex align-items-center d-block d-sm-none ">
@@ -16,28 +16,28 @@
         <a class="btn nav-link" (click)="toggleSidebar()"><i class="fa fa-bars"></i></a>
       </div>
 
-       
+
       <div class="dropdown mx-2">
-          <a class="btn nav-link  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-globe"></i> </a>
-          <div class="dropdown-menu " [ngClass]="{'rtl': lang === 'ar'}" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" type="button" (click)="setLanguage('ar')">Arabic</a>
-            <a class="dropdown-item" type="button" (click)="setLanguage('en')">English</a>
-          </div>
+        <a class="btn nav-link  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-globe"></i> </a>
+        <div class="dropdown-menu " [ngClass]="{'rtl': lang === 'ar'}" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" type="button" (click)="setLanguage('ar')">Arabic</a>
+          <a class="dropdown-item" type="button" (click)="setLanguage('en')">English</a>
         </div>
+      </div>
 
-        <div class="dropdown">
-          <a class="btn nav-link  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-ellipsis-v" aria-hidden="true"></i> </a>
-          <div class="dropdown-menu " [ngClass]="{'rtl': lang === 'ar'}" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" type="button" (click)="setLanguage('ar')">Arabic</a>
-            <a class="dropdown-item" type="button" (click)="setLanguage('en')">English</a>
-          </div>
+      <!-- <div class="dropdown">
+        <a class="btn nav-link  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-ellipsis-v" aria-hidden="true"></i> </a>
+        <div class="dropdown-menu " [ngClass]="{'rtl': lang === 'ar'}" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" type="button" (click)="setLanguage('ar')">Arabic</a>
+          <a class="dropdown-item" type="button" (click)="setLanguage('en')">English</a>
         </div>
+      </div> -->
 
-      
+
     </div>
   </div>
 
@@ -62,7 +62,7 @@
         </div>
 
 
-        
+
 
         <li class="nav-item">
           <div class="dropdown">
