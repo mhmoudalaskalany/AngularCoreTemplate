@@ -10,7 +10,6 @@ import { HttpClient } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DataTableComponent } from './components/data-table/data-table.component';
 import { NgxBootstrapModules } from 'third-party/ngx-bootstrap';
-import { PrimeNgModules } from 'third-party/primeng';
 import { RouterModule } from '@angular/router';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -26,7 +25,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     FormsModule,
     RouterModule,
     ReactiveFormsModule,
-    PrimeNgModules,
     ThirdPartyModule,
     TranslateModule.forChild({
       loader: {
@@ -40,9 +38,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     LoadingSpinnerComponent,
     DataTableComponent,
     ThirdPartyModule,
-    PrimeNgModules,
     TranslateModule,
     FormsModule,
-    ReactiveFormsModule]
+    ReactiveFormsModule
+  ]
 })
 export class SharedModule { }
