@@ -7,7 +7,7 @@ import { LoginComponent } from 'features/account/components/login/login.componen
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'main2',
+    redirectTo: 'main',
     pathMatch: 'full'
   },
   {
