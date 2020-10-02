@@ -1,54 +1,88 @@
-<nav class="navbar navbar-expand-md fixed-top navbar-dark flex-fill">
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark d-flex justify-content-between px-3">
   <!-- header -->
-  <div class="navbar-header pl-2 pr-2 ml-3 text-center">
-    <a class="navbar-brand m-0 w-100" href="#">
+  <div class="navbar-header mx-3 justify-content-between text-center">
+    <a class="navbar-brand m-0 d-flex align-items-center" href="#">
       <!-- <i class="fa fa-flash mr-1"></i> -->
       <img src="./assets/img/logo.png" alt="lightning logo" width="35px">
-      <span class="ml-1">User Management</span>
+      <span class="mx-2">User Management</span>
     </a>
-  </div>
-  <!-- sidebar toggler -->
-  <div class="sidebar-toggler ml-auto mr-3">
-    <a class="btn nav-link" (click)="toggleSidebar()"><i class="fa fa-bars"></i></a>
-  </div>
-  <!-- right menu toggler -->
-  <div class="nav-toggler-right mr-4 d-md-none">
-    <button class="" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
-      aria-controls="collapseBasic">
-      <!-- <span class="navbar-toggler-icon"></span> -->
-      <img src="./assets/img/user.jpg" class="img-fluid" alt="">
-    </button>
-    <span class="user-profile nav-alert bg-danger"></span>
-  </div>
-  <!-- left box -->
-  <ul class="navbar-nav flex-fill mt-1 align-items-center left-nav">
-    <li class="nav-item navicon">
-      <a class="btn nav-link" (click)="toggleSidebarPin()"><i class="fa fa-bars"></i></a>
-    </li>
-  </ul>
 
-  <!-- right menu -->
-  <div class="collapse navbar-collapse right-nav" id="collapseBasic" [collapse]="isCollapsed">
-    <ul class="navbar-nav ">
-      <li class="nav-item">
-        <a class="btn nav-link">
-          <i class="far fa-user"></i>
-          <span class="link-text">Profile</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <div class="dropdown">
-            <a class="btn nav-link  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-cog"></i>
-                <span class="link-text">Setting</span>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" type="button" (click)="setLanguage('ar')">Arabic</a>
-                <a class="dropdown-item" type="button" (click)="setLanguage('en')">English</a>
-            </div>
+    <!-- Mobile -->
+
+    <div class=" d-flex align-items-center d-block d-sm-none ">
+
+
+      <div class="sidebar-toggler ">
+        <a class="btn nav-link" (click)="toggleSidebar()"><i class="fa fa-bars"></i></a>
+      </div>
+
+
+      <div class="dropdown mx-2">
+        <a class="btn nav-link  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-globe"></i> </a>
+        <div class="dropdown-menu " [ngClass]="{'rtl': lang === 'ar'}" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" type="button" (click)="setLanguage('ar')">Arabic</a>
+          <a class="dropdown-item" type="button" (click)="setLanguage('en')">English</a>
         </div>
-    </li>
-    </ul>
+      </div>
+
+      <!-- <div class="dropdown">
+        <a class="btn nav-link  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-ellipsis-v" aria-hidden="true"></i> </a>
+        <div class="dropdown-menu " [ngClass]="{'rtl': lang === 'ar'}" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" type="button" (click)="setLanguage('ar')">Arabic</a>
+          <a class="dropdown-item" type="button" (click)="setLanguage('en')">English</a>
+        </div>
+      </div> -->
+
+
+    </div>
   </div>
 
+
+
+  <!-- desktop -->
+
+  <div class=" d-none d-sm-block topnav ">
+
+    <div class="collapse navbar-collapse right-nav d-flex justify-content-end" id="collapseBasic"
+      [collapse]="isCollapsed">
+
+      <ul class="navbar-nav ">
+
+        <!-- Search -->
+
+        <div class="d-flex justify-content-center h-100 mx-1">
+          <div class="searchbar">
+            <input class="search_input" type="text" name="" placeholder="Search...">
+            <i class="fas fa-search"></i>
+          </div>
+        </div>
+
+
+
+
+        <li class="nav-item">
+          <div class="dropdown">
+            <a class="btn nav-link  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-globe"></i>
+              <span class="link-text">Language</span>
+            </a>
+            <div class="dropdown-menu " [ngClass]="{'rtl': lang === 'ar'}" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" type="button" (click)="setLanguage('ar')">Arabic</a>
+              <a class="dropdown-item" type="button" (click)="setLanguage('en')">English</a>
+            </div>
+          </div>
+        </li>
+
+
+        <li class="nav-item navicon">
+          <a class="btn nav-link" (click)="toggleSidebarPin()"><i class="fa fa-bars"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>

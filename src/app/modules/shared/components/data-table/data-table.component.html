@@ -1,9 +1,11 @@
-<p-table #table [columns]="cols" [value]="data" [paginator]="true" [rows]="8" [customSort]="true" autoLayout="true"
-  (sortFunction)="customSort($event)">
+<p-table #table [columns]="cols" [value]="data" [sortField]="'id'" [sortOrder]="1" [lazy]="true"
+  [showCurrentPageReport]="true" [currentPageReportTemplate]="'Showing {first} to {last} of {totalRecords} entries'"
+  [paginator]="true" [rowsPerPageOptions]=[5,10,15,20] [rows]="this.Service.opt.pageSize" [totalRecords]="totalCount"
+  autoLayout="true" (onLazyLoad)="loadLazyLoadedData($event)">
   <ng-template pTemplate="header" let-columns>
     <!-- Table Headers-->
     <tr>
-      <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+      <th *ngFor="let col of columns" [pSortableColumn]="col.sortCol">
         {{ 'Data.' +col.header | translate }}
         <p-sortIcon [field]="col.field"></p-sortIcon>
       </th>

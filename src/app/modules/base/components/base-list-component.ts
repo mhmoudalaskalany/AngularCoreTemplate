@@ -1,5 +1,5 @@
 
-import { OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
+import { OnInit, ViewChild, Output, EventEmitter, Directive } from '@angular/core';
 import { HttpService } from 'core/services/http/http.service';
 import { Observable } from 'rxjs';
 import { AlertService } from 'core/services/alert/alert.service';
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 
 
 
+@Directive()
 export abstract class BaseListComponent implements OnInit {
 
     constructor() { }

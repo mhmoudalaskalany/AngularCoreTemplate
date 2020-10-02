@@ -1,4 +1,4 @@
-import { OnInit } from '@angular/core';
+import { OnInit, Directive } from '@angular/core';
 import { HttpService } from 'core/services/http/http.service';
 import { Observable } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -8,6 +8,7 @@ import { SessionManager } from 'core/services/guards/session-manager';
 import { RoleData } from 'core/services/guards/models';
 
 
+@Directive()
 export abstract class BaseEditComponent implements OnInit {
 
   constructor(protected route: ActivatedRoute) {

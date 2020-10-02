@@ -8,7 +8,7 @@ import { TranslationService } from 'core/services/localization/translation.servi
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'AngularGridCoreTemplate';
+  title = 'AngularCoreTemplate';
   constructor(public inj: Injector , private translateService: TranslationService) {
     Shell.Injector = inj;
     this.translateService.setDefaultLanguage();

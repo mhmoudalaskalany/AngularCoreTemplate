@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from 'features/dashboard/services/dashboard.service';
+import { TranslationService } from 'core/services/localization/translation.service';
 
 @Component({
   selector: 'app-layout',
@@ -8,15 +9,21 @@ import { DashboardService } from 'features/dashboard/services/dashboard.service'
 })
 export class LayoutComponent implements OnInit {
 
-  constructor(private dashboardService: DashboardService) { }
+  lang
+
+  constructor(private dashboardService: DashboardService, private translation: TranslationService) { }
 
   ngOnInit() {
+    this.translation.currentLanguage.subscribe(lang => this.lang = lang);
   }
+
   getClasses() {
     const classes = {
       'pinned-sidebar': this.dashboardService.getSidebarStat().isSidebarPinned,
-      'toggeled-sidebar': this.dashboardService.getSidebarStat().isSidebarToggeled
-    }
+      'toggeled-sidebar': this.dashboardService.getSidebarStat().isSidebarToggeled,
+      'rtl': this.lang === 'ar'
+    };
+
     return classes;
   }
   toggleSidebar() {

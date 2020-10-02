@@ -6,6 +6,10 @@
     border-bottom: 1px solid;
 
     .navbar-header {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
 
       .navbar-brand {
         font-size: 1rem;
@@ -69,14 +73,6 @@
       &.user-profile {
         transform: translateX(2px);
       }
-    }
-
-
-    .navbar-header {
-      height: 100%;
-      display: flex;
-      align-items: center;
-
     }
 
     .user-profile {
@@ -147,7 +143,6 @@
     }
 
     @media (min-width: 768px) {
-
       .sidebar-toggler {
         display: none;
       }
@@ -155,6 +150,7 @@
       .navbar-header {
         width: $sidebar-width;
         margin-left: 0!important;
+
         .navbar-brand span {
           display: inline-block;
         }
@@ -181,7 +177,7 @@
 
         ul {
 
-          margin-left: auto;
+          // margin-left: auto;
           flex-wrap: nowrap;
 
           li {

@@ -39,12 +39,14 @@ export class AllPermissionComponent extends BaseListComponent implements OnInit 
         field: 'nameEn',
         header: 'EnglishName',
         sort: true,
+        sortCol: 'nameEn',
         filterMode: 'text'
       },
       {
         field: 'nameAr',
         header: 'ArabicName',
         sort: true,
+        sortCol: 'nameAr',
         filterMode: 'text'
       }
 

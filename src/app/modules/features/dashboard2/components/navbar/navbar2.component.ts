@@ -1,17 +1,17 @@
 
 import { Component, OnInit } from '@angular/core';
-import { DashboardService } from 'features/dashboard/services/dashboard.service';
+import { Dashboard2Service } from 'features/dashboard2/services/dashboard2.service';
 import { TranslationService } from 'core/services/localization/translation.service';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  selector: 'app-navbar2',
+  templateUrl: './navbar2.component.html',
+  styleUrls: ['./navbar2.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class Navbar2Component implements OnInit {
   lang;
   constructor(
-    private dashboardService: DashboardService,
+    private dashboardService: Dashboard2Service,
     private translateService: TranslationService
   ) { }
   isCollapsed = true;
@@ -19,13 +19,6 @@ export class NavbarComponent implements OnInit {
     this.translateService.currentLanguage.subscribe(lang => this.lang = lang);
   }
 
-  toggleSidebarPin() {
-    this.dashboardService.toggleSidebarPin();
-  }
-
-  toggleSidebar() {
-    this.dashboardService.toggleSidebar();
-  }
 
   setLanguage(lang: string): void {
     this.lang = lang;
