@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class DashboardService {
 
   isSidebarPinned = false;
   isSidebarToggeled = false;
+  isSidebarPinned$ = new BehaviorSubject<boolean>(false);
 
   constructor() { }
 
@@ -16,6 +19,7 @@ export class DashboardService {
 
   toggleSidebarPin() {
     this.isSidebarPinned = !this.isSidebarPinned;
+    return this.isSidebarPinned$.next(this.isSidebarPinned);
   }
 
   getSidebarStat() {

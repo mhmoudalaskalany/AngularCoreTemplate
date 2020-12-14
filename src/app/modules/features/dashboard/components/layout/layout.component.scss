@@ -1,0 +1,15 @@
+.container, .container-fluid, .container-xl, .container-lg, .container-md, .container-sm {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    background: #fff;
+    overflow-x: hidden;
+}
+
+:host ::ng-deep app-job-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}

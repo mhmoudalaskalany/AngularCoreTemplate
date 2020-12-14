@@ -1,12 +1,16 @@
-<div class="wrapper default-theme" [ngClass]="getClasses()">
-  <app-navbar></app-navbar>
-  <main>
-    <app-sidebar></app-sidebar>
-    <div class="pages container-fluid pt-4 pb-4 pl-4 pr-4 ">
+<section class="wrapper default-theme d-flex flex-column" [ngClass]="getClasses()">
+  <main class="contents d-flex flex-grow-1">
+    <app-sidebar class="sidebar-wrapper"></app-sidebar>
+
+    <div class="d-flex flex-column flex-grow-1 container-fluid">
+      <app-navbar></app-navbar>
       <router-outlet></router-outlet>
-      <hr>
-      <app-footer></app-footer>
+
+      <!-- <section class="d-flex flex-column flex-grow-1 justify-content-end">
+        <app-footer></app-footer>
+      </section> -->
     </div>
+
     <div class="overlay" (click)="toggleSidebar()"></div>
   </main>
-</div>
+</section>

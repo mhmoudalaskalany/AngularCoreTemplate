@@ -4,15 +4,23 @@
    
     .sidebar {
       height: 100%;
-      width: $sidebar-width;
+      width: 240px;
       position: absolute;
-      transition: left .3s ease;
+      transition: all .25s ease;
       left: -$sidebar-width;
-      top: 5;
       z-index: 111;
       overflow: auto;
-    
       box-shadow: 1px -20px 10px rgba(0, 0, 0, 0.1);
+      
+      @media (min-width: 768px) {
+        transition: all .25s ease;
+        left: unset;
+        position: relative;
+    
+        width: $sidebar-width;
+        height: 100%;
+      }
+
       >div {
         border-bottom: 0px solid;
 
@@ -22,13 +30,14 @@
       }
 
       .sidebar-profile {
-
         .user-picture {
           width: 100px;
           height: 100px;
           border-radius: 50%;
           overflow: hidden;
-          border: 2px solid #eaeaea;
+          border: 2px solid #fff;
+          // transition: width .25s ease;
+
           img {
             width: 100%;
             height: 100%;
@@ -102,34 +111,36 @@
        
       }
     }
-
-    @media (min-width: 768px) {
-      .sidebar {
-        position: static;
-        height: 100%;
-      }
-    }
   }
   
   &.rtl {
+    .sidebar {
+      left: unset !important;
+      right: -$sidebar-width;
+
+      @media (min-width: 768px) {
+        transition: all .25s ease;
+        right: unset;
+        position: relative;
+    
+        width: $sidebar-width;
+        height: 100%;
+      }
+    }
+
     &.toggeled-sidebar {
       .sidebar {
         left: unset !important;
         right: 0;
       }
     }
-
-    .sidebar {
-      transition: right .3s ease;
-      left: unset !important;
-      right: -$sidebar-width;
-    }
   }
 
   &.pinned-sidebar {
     @media (min-width: 768px) {
-      .navbar-header{
+      .navbar-header {
         width: $sidebar-pinned-wdth!important;
+
         span{
           display: none!important;
         }
@@ -138,13 +149,11 @@
       .sidebar {
         width: $sidebar-pinned-wdth;
 
-        .sidebar-profile {
-
+        .sidebar-profile { 
           .user-picture {
             width: 40px;
             height: 40px;
           }
-
         }
 
         .profile-details,
@@ -164,7 +173,6 @@
           }
         }
       }
-
     }
   }
 

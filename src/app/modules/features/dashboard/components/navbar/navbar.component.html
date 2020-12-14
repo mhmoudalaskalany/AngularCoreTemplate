@@ -1,86 +1,87 @@
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark d-flex justify-content-between px-3">
+<nav class="navbar navbar-expand-lg  navbar-dark d-flex justify-content-between">
   <!-- header -->
-  <div class="navbar-header mx-3 justify-content-between text-center">
-    <a class="navbar-brand m-0 d-flex align-items-center" href="#">
-      <!-- <i class="fa fa-flash mr-1"></i> -->
-      <img src="./assets/img/logo.png" alt="lightning logo" width="35px">
-      <span class="mx-2">User Management</span>
-    </a>
+  <div class="navbar-header justify-content-between text-center">
+    <div class="navbar-brand m-0 d-flex align-items-center">
+      <a class="btn-toggle nav-link d-none d-sm-flex" (click)="toggleSidebarPin()"><i class="fa fa-bars"></i></a>
+      <a class="btn-toggle nav-link d-flex d-sm-none" (click)="toggleSidebar()"><i class="fa fa-bars"></i></a>
+    </div>
 
     <!-- Mobile -->
+    <ul class="navbar-nav d-flex d-sm-none flex-row">
+      <li class="nav-item px-2" style="border-inline-end: 1px solid #00A39E; color: #fff;">
+        <a class="nav-link" *ngIf="lang === 'en'" (click)="setLanguage('ar')">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+          </svg>
+  
+          <span class="mx-1">العربية</span>
+        </a>
+  
+        <a class="nav-link" *ngIf="lang === 'ar'" (click)="setLanguage('en')">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+          </svg>
+  
+          <span class="mx-1">English</span>
+        </a>
+      </li>
+      
+      <li class="nav-item px-2" style="color: #fff;">
+        <a class="nav-link" style="color: #fff;"  (click)="logOut()">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+          </svg>
 
-    <div class=" d-flex align-items-center d-block d-sm-none ">
-
-
-      <div class="sidebar-toggler ">
-        <a class="btn nav-link" (click)="toggleSidebar()"><i class="fa fa-bars"></i></a>
-      </div>
-
-
-      <div class="dropdown mx-2">
-        <a class="btn nav-link  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-globe"></i> </a>
-        <div class="dropdown-menu " [ngClass]="{'rtl': lang === 'ar'}" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" type="button" (click)="setLanguage('ar')">Arabic</a>
-          <a class="dropdown-item" type="button" (click)="setLanguage('en')">English</a>
-        </div>
-      </div>
-
-      <!-- <div class="dropdown">
-        <a class="btn nav-link  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          <i class="fa fa-ellipsis-v" aria-hidden="true"></i> </a>
-        <div class="dropdown-menu " [ngClass]="{'rtl': lang === 'ar'}" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" type="button" (click)="setLanguage('ar')">Arabic</a>
-          <a class="dropdown-item" type="button" (click)="setLanguage('en')">English</a>
-        </div>
-      </div> -->
-
-
-    </div>
+          <span class="mx-1">{{ 'Data.Logout'  | translate}}</span>
+        </a>
+      </li>
+    </ul>
   </div>
 
-
-
   <!-- desktop -->
-
-  <div class=" d-none d-sm-block topnav ">
-
-    <div class="collapse navbar-collapse right-nav d-flex justify-content-end" id="collapseBasic"
-      [collapse]="isCollapsed">
-
-      <ul class="navbar-nav ">
-
+  <div class="d-none d-sm-block topnav">
+    <div class="d-flex justify-content-end" id="collapseBasic" [collapse]="isCollapsed">
+      <ul class="navbar-nav d-flex flex-row align-items-center">
         <!-- Search -->
-
-        <div class="d-flex justify-content-center h-100 mx-1">
+        <div class="d-flex justify-content-center h-100">
           <div class="searchbar">
-            <input class="search_input" type="text" name="" placeholder="Search...">
+            <input class="search_input" type="text" name="" placeholder="Search..." />
             <i class="fas fa-search"></i>
           </div>
         </div>
 
+        <li class="nav-item navicon px-sm-2 px-lg-3">
+          <a class="nav-link" *ngIf="lang === 'en'" (click)="setLanguage('ar')">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+            </svg>
 
+            <span>العربية</span>
+          </a>
 
+          <a class="nav-link" *ngIf="lang === 'ar'" (click)="setLanguage('en')">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+            </svg>
 
-        <li class="nav-item">
-          <div class="dropdown">
-            <a class="btn nav-link  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-globe"></i>
-              <span class="link-text">Language</span>
-            </a>
-            <div class="dropdown-menu " [ngClass]="{'rtl': lang === 'ar'}" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" type="button" (click)="setLanguage('ar')">Arabic</a>
-              <a class="dropdown-item" type="button" (click)="setLanguage('en')">English</a>
-            </div>
-          </div>
+            <span>English</span>
+          </a>
         </li>
 
+        <li class="nav-item logout">
+          <a class="nav-link" style="color: #fff;" (click)="logOut()">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="18" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
 
-        <li class="nav-item navicon">
-          <a class="btn nav-link" (click)="toggleSidebarPin()"><i class="fa fa-bars"></i></a>
+            <span>{{ 'Data.Logout'  | translate}}</span>
+          </a>
         </li>
       </ul>
     </div>
