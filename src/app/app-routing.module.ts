@@ -19,12 +19,6 @@ const routes: Routes = [
     loadChildren: () => import('./modules/features/dashboard/dashboard.module').then(m => m.DashboardModule),
     // canActivate: [AuthGuard],
     // data: { permission: 'allowAll' }
-  },
-  {
-    path: 'main2',
-    loadChildren: () => import('./modules/features/dashboard2/dashboard2.module').then(m => m.Dashboard2Module),
-    // canActivate: [AuthGuard],
-    // data: { permission: 'allowAll' }
   }
 ];
 

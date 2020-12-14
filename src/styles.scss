@@ -1,6 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: Almarai-Regular;
+    src: url(././assets/fonts/Almarai-Regular.ttf);
+  }
 
-@import '~ngx-toastr/toastr';
+$font-regular: "Almarai-Regular";
+$default-font-size: 14px;
+$font-small: 12px;
+$font-medium: 14px;
+$font-large: 16px;
+
+
+@import "~ngx-toastr/toastr";
 @import "~@ng-select/ng-select/themes/material.theme.css";
 $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 $hamburger-padding-x: 0px !default;
@@ -11,18 +22,36 @@ $hamburger-layer-spacing: 5px !default;
 $hamburger-layer-color: #9b9ea2 !default;
 $hamburger-layer-border-radius: 4px !default;
 $hamburger-hover-opacity: 0.7 !default;
-@import '~@fortawesome/fontawesome-free/scss/fontawesome';
-@import '~@fortawesome/fontawesome-free/scss/solid';
-@import '~@fortawesome/fontawesome-free/scss/regular';
-@import '~@fortawesome/fontawesome-free/scss/brands';
-@import './assets/lightning-admin';
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+@import "./assets/lightning-admin";
 @import "./assets/sass/main.scss";
 
 /* global styles for element */
 
-.rtl{
-  direction: rtl;
-  text-align: right;
+.rtl {
+    direction: rtl;
+    text-align: start;
+
+    .wrapper {
+        .hint {
+            left: 0;
+            right: unset !important;
+        }
+    }
+}
+
+html,
+body {
+    height: 100%;
+}
+
+* {
+    font-family: $font-regular;
+    font-size: $default-font-size;
+    text-align: start;
 }
 
 /* ng select element styles */
@@ -37,7 +66,6 @@ $hamburger-hover-opacity: 0.7 !default;
         }
     }
 }
-
 
 /* add button style */
 

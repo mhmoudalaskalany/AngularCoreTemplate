@@ -3,7 +3,7 @@
         <div class="sidebar-profile d-flex flex-column justify-content-center pt-2">
             <div class="picture-wrapper">
                 <div class=" m-auto">
-                    <img src="assets/images/logo-dark1.png" class="img-fluid mt-4" alt="">
+                    <img src="assets/img/logo-dark1.png" class="img-fluid mt-4" alt="">
                 </div>
             </div>
             <!-- <div class="profile-details text-center pb-4">
@@ -17,57 +17,19 @@
                 <li>
                     <a routerLink="/main/personalinfo" routerLinkActive="active" (click)="closeSidebar()">
                         <i class="fas fa-home"></i>
-                        <span class="mx-2">{{ 'HOME.INTERNALMENU.HOME'  | translate}}</span>
+                        <span class="mx-2">{{ 'HOME.PAGES.HOME'  | translate}}</span>
                     </a>
                 </li>
 
                 <li>
                     <a routerLink="/main/jobs" routerLinkActive="active" (click)="closeSidebar()">
                         <i class="fa fa-briefcase" aria-hidden="true"></i>
-                        <span class="mx-2">{{ 'HOME.INTERNALMENU.OPENJOBS'  | translate}}</span>
+                        <span class="mx-2">{{ 'HOME.PAGES.PERMISSIONS'  | translate}}</span>
                     </a>
                 </li>
 
-                <li>
-                    <a routerLink="/main/myapplications" routerLinkActive="active" (click)="closeSidebar()">
-                        <i class="fa fa-id-card" aria-hidden="true"></i>
-                        <span class="mx-2">{{ 'HOME.INTERNALMENU.APPLICATIONS'  | translate}}</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a routerLink="/main/opportunities" routerLinkActive="active" (click)="closeSidebar()">
-                        <i class="fa fa-handshake" aria-hidden="true"></i>
-                        <span class="mx-2">{{ 'HOME.INTERNALMENU.OPPO'  | translate}}</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a routerLink="/main/wallet" routerLinkActive="active" (click)="closeSidebar()">
-                        <i class="fa fa-credit-card" aria-hidden="true"></i>
-                        <span class="mx-2">{{ 'HOME.INTERNALMENU.WALLET'  | translate}}</span>
-                    </a>
-                </li>
-
-                <!-- <li>
-                    <a routerLink="/main/jobs/add" routerLinkActive="active" (click)="closeSidebar()">
-                        <i class="fa fa-briefcase" aria-hidden="true"></i>
-                        <span class="mx-2">{{ 'HOME.INTERNALMENU.ADDJOB'  | translate}}</span>
-                    </a>
-                </li> -->
-
-                <li>
-                    <a routerLink="/main/applications" routerLinkActive="active" (click)="closeSidebar()">
-                        <i class="fa fa-id-card" aria-hidden="true"></i>
-                        <span class="mx-2">{{ 'HOME.INTERNALMENU.JOBAPPLICATIONS'  | translate}}</span>
-                    </a>
-                </li>
             </ul>
 
-            <!-- <div class="view-source mt-5">
-                <button (click)="logout()"
-                    class="btn btn-block btn-lightning rounded-0">{{ 'Data.Logout' | translate}}</button>
-            </div> -->
         </nav>
     </aside>
 </div>

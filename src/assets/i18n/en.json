@@ -2,6 +2,7 @@
   "TITLE": "Angular 9 Title",
   "HOME": {
     "PAGES": {
+      "HOME":"Home",
       "USERS": "Users",
       "USERROLES": "User Roles",
       "APPS": "Applications",
