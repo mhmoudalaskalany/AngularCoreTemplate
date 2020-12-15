@@ -14,10 +14,10 @@ import { BehaviorSubject } from 'rxjs';
 export class TranslationService {
   langs = ['en', 'fr', 'ar'];
   lang;
-  currentLanguage = new BehaviorSubject<string>(null);
-  
+  currentLanguage = new BehaviorSubject<string>('en');
+
   private renderer: Renderer2;
-  constructor(public translate: TranslateService , private rendererFactory: RendererFactory2) {
+  constructor(public translate: TranslateService, private rendererFactory: RendererFactory2) {
     this.renderer = rendererFactory.createRenderer(null, null);
     this.lang = localStorage.getItem('language') != null ? localStorage.getItem('language') : 'en';
   }
@@ -42,8 +42,10 @@ export class TranslationService {
     this.currentLanguage.next(lang);
     if (lang === 'ar') {
       this.renderer.addClass(document.body, 'rtl');
+      this.renderer.setAttribute(document.body, 'dir', 'rtl');
     } else {
       this.renderer.removeClass(document.body, 'rtl');
+      this.renderer.removeAttribute(document.body, 'dir');
     }
     this.translate.use(lang);
   }
