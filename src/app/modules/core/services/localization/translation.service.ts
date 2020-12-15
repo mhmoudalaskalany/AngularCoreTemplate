@@ -25,8 +25,14 @@ export class TranslationService {
   setDefaultLanguage() {
     this.translate.addLangs(['en', 'fr', 'ar']);
     this.translate.setDefaultLang('en');
-    const browserLang = this.translate.getBrowserLang();
-    this.translate.use(browserLang.match(/en|fr|ar/) ? browserLang : 'en');
+    this.translate.use(this.lang === undefined ? 'en' : this.lang);
+    if (this.lang === 'ar') {
+      this.renderer.addClass(document.body, 'rtl');
+      this.renderer.setAttribute(document.body, 'dir', 'rtl');
+    } else {
+      this.renderer.removeClass(document.body, 'rtl');
+      this.renderer.removeAttribute(document.body, 'dir');
+    }
   }
 
   useLanguage(lang: string): void {
@@ -48,5 +54,14 @@ export class TranslationService {
       this.renderer.removeAttribute(document.body, 'dir');
     }
     this.translate.use(lang);
+  }
+
+  isEnglish(): boolean {
+    const currentLang = this.translate.currentLang;
+    if (currentLang === 'en') {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

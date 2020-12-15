@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DashboardService } from 'features/dashboard/services/dashboard.service';
 import { TranslationService } from 'core/services/localization/translation.service';
 import { Router } from '@angular/router';
+import { Shell } from 'base/components/shell';
+import { StorageService } from 'core/services/storage/storage.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,11 +15,12 @@ export class NavbarComponent implements OnInit {
 
   lang;
   isCollapsed = true;
-
-  constructor(private dashboardService: DashboardService, private translateService: TranslationService, private router: Router) { }
+  get Translate(): TranslationService { return Shell.Injector.get(TranslationService); }
+  get Storage(): StorageService { return Shell.Injector.get(StorageService); }
+  constructor(private dashboardService: DashboardService, private router: Router) { }
 
   ngOnInit() {
-    this.translateService.currentLanguage.subscribe(lang => this.lang = lang);
+    this.Translate.currentLanguage.subscribe(lang => this.lang = lang);
     console.log(this.lang);
   }
 
@@ -31,7 +34,9 @@ export class NavbarComponent implements OnInit {
 
   setLanguage(lang: string): void {
     this.lang = lang;
-    this.translateService.setLanguage(lang);
+    this.Translate.setLanguage(lang);
+    this.Storage.setItem('language', lang);
+    console.log('language', this.Translate.lang);
   }
 
   logOut() {
