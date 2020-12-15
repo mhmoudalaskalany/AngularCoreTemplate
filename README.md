@@ -1,5 +1,5 @@
 
-# AngularCoreTemplate v10
+# AngularCoreTemplate v11
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.1.
 # Installation
